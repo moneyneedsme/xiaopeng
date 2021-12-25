@@ -1,0 +1,11 @@
+<view class="page-index">
+  <custom-navigation-bar>{{tabs[tabIndex].title}}</custom-navigation-bar>
+	<Home wx:if="{{_HOME === tabs[tabIndex].key}}"/>
+	<My wx:if="{{_MY === tabs[tabIndex].key}}"/>
+  <view class="tab-bar">
+		<view wx:for="{{tabs}}" wx:key="text" data-index="{{index}}" class="tab-item" catchtap="onSwitch">
+			<image class="icon" mode="aspectFit" src="{{tabIndex === index ? item.selectedIcon : item.icon}}"></image>
+			<view class="text" style="color: {{tabIndex === index ? color : ''}}">{{item.text}}</view>
+		</view>
+	</view>
+</view>

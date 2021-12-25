@@ -1,0 +1,4 @@
+<view class="navigation-bar"
+    style="padding:{{ statusBarHeight }}px {{padding}}px 0;height:{{ navigationBarHeight }}px;color: {{fontColor}}; background: {{color}};">
+    <slot></slot>
+</view>

@@ -1,0 +1,44 @@
+.page-index {
+  padding-bottom: 110rpx;
+  box-sizing: border-box;
+  height: 100vh;
+  overflow-y: auto;
+}
+.page-index::-webkit-scrollbar{
+  width:0;
+  height:0;
+  color:transparent;
+  display:none
+}
+.tab-bar {
+  height: 100rpx;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  z-index: 999;
+}
+.tab-bar .tab-item {
+  border-top: 1rpx solid rgba(0, 0, 0, 0.08);
+  flex: 1;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 333ms;
+}
+.tab-bar .icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-bottom: 12rpx;
+  transition: inherit;
+}
+.tab-bar .text {
+  font-size: 20rpx;
+  line-height: 1;
+  color: #333;
+  transition: inherit;
+}

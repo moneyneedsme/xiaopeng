@@ -1,0 +1,28 @@
+.my-head {
+  height: 340rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.my-head > .avatar {
+  width: 162rpx;
+  height: 162rpx;
+  margin-bottom: 20rpx;
+  border-radius: 50%;
+}
+.my-head > button {
+  width: 240rpx;
+  height: 66rpx;
+  line-height: 60rpx;
+  border: 3rpx solid white;
+  border-radius: 44rpx;
+  color: white;
+  font-size: 26rpx;
+  padding: 0;
+  font-weight: 400;
+}
+.my-head .name {
+  color: #1a1919;
+  font-size: 30rpx;
+}

@@ -1,0 +1,13 @@
+<view class="page-my">
+  <view class="my-head" style="background-image: linear-gradient(to right, {{colorGradual1}} , {{colorGradual2}});">
+    <image class="avatar" src="{{ user.avatarUrl || '../../../images/portrait.png' }} "/>
+    <view class="name" wx:if="{{user.name}}">{{'系哟啊啊'}}</view>
+    <button
+      wx:else
+      style="background: {{colorRgba}};border-color: {{color}};"
+      bindtap="getUserProfile"
+    >
+      微信授权登录
+    </button>
+  </view>
+</view>

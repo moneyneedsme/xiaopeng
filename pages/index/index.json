@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "custom-navigation-bar": "./components/custom-navigation-bar",
+    "Home": "./home",
+    "My": "./my"
+  }
+}
