@@ -1,4 +1,5 @@
 import api from './api/login';
+import request from './utils/request';
 App({
   onLaunch () {
     this.globalData = {
@@ -10,24 +11,25 @@ App({
         fontColor: '#ffffff'
       }
     };
+    const App = this
+    App.request = request
+    App.state = {
+      userInfo: {}
+    }
     wx.login({
       success (res) {
-        console.log(res)
         if (res.code) {
-          wx.request({
+          request({
             url: api.login,
             data: {
               code: res.code
             },
             method: 'POST',
-            success: () => {
-              wx.getUserInfo({
-                withCredentials: true,
-                success: (res) => {
-                  console.log(res)
-                }
-              })
-            }
+          }).then(res => {
+            App.state.userInfo = res?.data?.data || {}
+            console.log(App.state.userInfo)
+      console.log('22222222')
+
           })
         } else {
           console.log('登录失败！' + res.errMsg)
