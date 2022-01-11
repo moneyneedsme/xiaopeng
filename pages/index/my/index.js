@@ -1,26 +1,39 @@
 const App = getApp()
-import api from '../../../api/login';
+import api from '../../../api/index';
 Component({
   data: {
-    color: App.globalData.$config?.color,
-    colorRgba: App.globalData.$config?.colorRgba,
-    colorGradual1: App.globalData.$config?.colorGradual1,
-    colorGradual2: App.globalData.$config?.colorGradual2,
+    color: null,
+    colorRgba: null,
+    colorGradual1: null,
+    colorGradual2: null,
     userInfo: null
   },
   lifetimes: {
     attached() {
-      if (this.data.userInfo) {
-        return
-      }
       this.setData({
+        color: App.state.config?.color,
+        colorRgba: App.state.config?.colorRgba,
+        colorGradual1: App.state.config?.colorGradual1,
+        colorGradual2: App.state.config?.colorGradual2,
         userInfo: App.state.userInfo || {}
       })
     }
   },
   methods: {
-    getUserProfile(e) {
-      console.log(App)
+    // 签到
+    onSignIn() {
+      App.request({
+        url: api.signIn,
+        method: 'POST',
+      }).then((res) => {
+        this.setData({
+          'userInfo.signed': true,
+          'userInfo.point': res.data.data
+        })
+        App.state.userInfo.signed = true
+      })
+    },
+    getUserProfile() {
       wx.getUserProfile({
         desc: '获取基本信息,仅做展示',
         success: (res) => {

@@ -1,7 +1,9 @@
 <view class="page-index">
-  <custom-navigation-bar>{{tabs[tabIndex].title}}</custom-navigation-bar>
-	<Home wx:if="{{_HOME === tabs[tabIndex].key}}"/>
-	<My wx:if="{{_MY === tabs[tabIndex].key}}"/>
+  <custom-navigation-bar wx:if="{{color}}">{{tabs[tabIndex].title}}</custom-navigation-bar>
+	<block wx:for="{{tabs}}" wx:key="text">
+		<Home wx:if="{{ item.initialized && _HOME === item.key}}" style="{{tabs[tabIndex].key === item.key?'':'display:none'}}"/>
+		<My wx:if="{{ item.initialized && _MY === item.key}}" style="{{tabs[tabIndex].key === item.key?'':'display:none'}}"/>
+	</block>
   <view class="tab-bar">
 		<view wx:for="{{tabs}}" wx:key="text" data-index="{{index}}" class="tab-item" catchtap="onSwitch">
 			<image class="icon" mode="aspectFit" src="{{tabIndex === index ? item.selectedIcon : item.icon}}"></image>

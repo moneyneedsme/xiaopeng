@@ -3,7 +3,11 @@ let getNavigationBarHeight
 const App = getApp()
 Component({
   lifetimes: {
-    created() {
+    attached() {
+      this.setData({
+        color: App.state.config?.color,
+        fontColor: App.state.config?.fontColor,
+      })
       this.measure()
       getStatusBarHeight.then(({ statusBarHeight }) => {
         this.setData({ statusBarHeight, })
@@ -14,8 +18,8 @@ Component({
     },
   },
   data: {
-    color: App.globalData.$config?.color,
-    fontColor: App.globalData.$config?.fontColor,
+    color: '',
+    fontColor: '',
   },
   methods: {
     measure() {

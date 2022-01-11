@@ -1,3 +1,4 @@
+import api from '../../api/index'
 const App = getApp();
 const _HOME = 'home'
 const _MY = 'my'
@@ -23,11 +24,28 @@ Page({
     _MY,
     tabIndex: 0, // tab索引
     tabs,
-    color: App.globalData.$config?.color,
+    color: '',
+  },
+  async onLoad() {
+    await this.getConfig()
+    this.setData({
+      color: App.state.config?.color,
+    })
+    this.setData({
+      [`tabs[${this.data.tabIndex}].initialized`]: true
+    })
+  },
+  getConfig() {
+    return App.request({
+      url: api.getConfig,
+    }).then(res => {
+      App.state.config = res.data.data.config
+    })
   },
   onSwitch({ currentTarget: { dataset: { index } } }) {
     this.setData({
-      tabIndex: index
+      tabIndex: index,
+      [`tabs[${index}].initialized`]: true
     })
   }
 })

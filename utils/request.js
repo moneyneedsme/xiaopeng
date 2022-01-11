@@ -30,8 +30,20 @@ export default function request(config, type) {
   return new Promise((success, fail) => {
     wx.request({
       // 发送请求
-      success,
-      fail,
+      success:(res) => {
+        if (res.data.success) {
+          success(res)
+        } else {
+          wx.showToast({
+            title: res.data.errorMessage,
+            icon: 'none'
+          })
+          fail(res.data.errorMessage)
+        }
+      },
+      fail:(err) => {
+        fail(err)
+      },
       ...config,
     });
   });

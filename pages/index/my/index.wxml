@@ -1,13 +1,21 @@
 <view class="page-my">
-  <view class="my-head" style="background-image: linear-gradient(to right, {{colorGradual1}} , {{colorGradual2}});">
-    <image class="avatar" src="{{ userInfo.avatarUrl || '../../../images/portrait.png' }} "/>
-    <view class="name" wx:if="{{userInfo.nickName}}">{{userInfo.nickName}}</view>
-    <button
-      wx:else
-      style="background: {{colorRgba}};border-color: {{color}};"
-      bindtap="getUserProfile"
-    >
-      微信授权登录
-    </button>
+  <view class="my-head items-center" style="background-image: linear-gradient(to right, {{colorGradual1}} , {{colorGradual2}});">
+    <view wx:if="{{userInfo.nickName}}" class="items-center has-info">
+      <image class="avatar" src="{{ userInfo.avatarUrl || '../../../images/portrait.png' }} "/>
+      <view class="user-info">
+        <view class="name" >{{userInfo.nickName}}</view>
+        <view>我的积分：{{userInfo.point || 0}}</view>
+      </view>
+      <button class="sign-in" disabled="{{userInfo.signed}}" bindtap="onSignIn">{{userInfo.signed ? '已签': '签到'}}</button>
+    </view>
+    <view wx:else class="not-info" >
+      <image class="avatar" src="{{ userInfo.avatarUrl || '../../../images/portrait.png' }} "/>
+      <button
+        style="background: {{colorRgba}};border-color: {{color}};"
+        bindtap="getUserProfile"
+      >
+        微信授权登录
+      </button>
+    </view>
   </view>
 </view>
