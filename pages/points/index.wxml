@@ -1,0 +1,17 @@
+<view style="{{colorStyle}}">
+  <view class="tabs">
+    <view wx:for="{{tabs}}" wx:key="index" class="tab-item {{viewRevive == item.value ? 'active' : ''}}" bindtap="switchTab" data-value="{{item.value}}">
+        <text class="tab-text">{{item.label}}</text>
+    </view>
+  </view>
+  <provider list="{{tabs[viewRevive].list}}" loading="{{tabs[viewRevive].loading}}">
+    <view class="item" wx:for="{{tabs[viewRevive].list}}" wx:key="index">
+      <view>
+        <view class="des">{{ item.describe }}</view>
+        <view class="time">{{ item.time }}</view>
+      </view>
+      <view class="point">{{ item.point }}</view>
+    </view>
+  </provider>
+</view>
+

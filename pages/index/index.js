@@ -27,7 +27,7 @@ Page({
     color: '',
   },
   async onLoad() {
-    await this.getConfig()
+    await App.getConfig()
     this.setData({
       color: App.state.config?.color,
     })
@@ -35,13 +35,7 @@ Page({
       [`tabs[${this.data.tabIndex}].initialized`]: true
     })
   },
-  getConfig() {
-    return App.request({
-      url: api.getConfig,
-    }).then(res => {
-      App.state.config = res.data.data.config
-    })
-  },
+  
   onSwitch({ currentTarget: { dataset: { index } } }) {
     this.setData({
       tabIndex: index,

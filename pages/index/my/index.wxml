@@ -18,4 +18,11 @@
       </button>
     </view>
   </view>
+  <view class="tool" bindtap="toPoint">
+    <view class="tool-info">
+      <image class="icon" src="../../../images/icon-point.png"/>
+      <text>我的积分</text>
+    </view>
+    <image class="arrow-right" src="../../../images/icon-arrow-right.png"/>
+  </view>
 </view>

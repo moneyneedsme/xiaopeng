@@ -29,7 +29,7 @@ button.sign-in{
   line-height: 60rpx;
   background: white;
   border-radius: 30rpx;
-  color: #333333;
+  color: #1a1919;
   font-size: 26rpx;
   padding: 0;
   font-weight: 400;
@@ -53,4 +53,30 @@ button.sign-in{
   padding: 0;
   font-weight: 400;
   margin-top: 20rpx;
+}
+.tool {
+  height: 100rpx;
+  background: white;
+  box-shadow: 0 15rpx 15rpx rgba(6, 40, 55, 0.06);
+  margin: 20rpx 0;
+  padding: 0 24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tool-info .icon {
+  width: 56rpx;
+  height: 56rpx;
+  margin-right: 20rpx;
+  vertical-align: middle;
+}
+.tool-info text {
+  font-size: 30rpx;
+  font-weight: 400;
+  color: #1a1919;
+  vertical-align: middle;
+}
+.arrow-right {
+  width: 40rpx;
+  height: 40rpx;
 }

@@ -1,0 +1,10 @@
+<view>
+  <view wx:if="{{!list.length}}" class="nodata">
+    <image mode="aspectFit" src="../../images/nodata.jpg"></image>
+    <view>暂无数据{{list.length}}</view>
+  </view>
+  <view wx:elif="{{loading}}" class="loading">
+    <image mode="aspectFit" src="../../images/loading.gif"></image>
+  </view>
+  <slot wx:else></slot>
+</view>

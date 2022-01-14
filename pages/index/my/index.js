@@ -22,6 +22,10 @@ Component({
   methods: {
     // 签到
     onSignIn() {
+      if (this.editing) {
+        return
+      }
+      this.editing = true
       App.request({
         url: api.signIn,
         method: 'POST',
@@ -31,6 +35,17 @@ Component({
           'userInfo.point': res.data.data
         })
         App.state.userInfo.signed = true
+        wx.showToast({
+          title: '签到成功',
+          icon: 'none'
+        })
+      }).finally(() => {
+        this.editing = false
+      })
+    },
+    toPoint() {
+      wx.navigateTo({
+        url: '/pages/points/index',
       })
     },
     getUserProfile() {

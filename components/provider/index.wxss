@@ -1,0 +1,16 @@
+.loading, .nodata {
+  padding-top: 100rpx;
+  text-align: center;
+}
+.loading image {
+  width: 400rpx;
+  height: 300rpx;
+}
+.nodata image {
+  width: 600rpx;
+  height: 400rpx;
+}
+.nodata view {
+  color: #9b9da9;
+  font-size: 32rpx;
+}
